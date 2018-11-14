@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Album</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet"  th:href="@{../css/bootstrap.min.css}" />
+</head>
+<body >	
+		
+	<div  class="header-style">
+		<p th:text="${cd.get().title}" ></p>
+	</div>	
+		
+	<div class="container-style">
+	
+		<div class ="box"> 
+		
+			<label>Artist</label>
+			<p class ="sameline-style" style="color: yellow;" th:text="${cd.get().artist}" >  </p>
+			<div style="display: block; height: 10px;"></div>
+	
+			<label>Price</label>
+			<p class ="sameline-style" style="color: yellow;" th:text="${cd.get().price}" >  </p>
+			<div style="display: block; height: 10px;"></div>
+		
+			<label>Released on</label>
+			<p class ="sameline-style" style="color: yellow;" th:text="${cd.get().year}" >  </p>
+			<div style="display: block; height: 10px;"></div>
+			<a href="javascript:history.back()" class="btn btn-danger">Back</a>
+		</div>
+	
+		<div class="box2">
+	
+		<!--	<p style="display: inline;" th:text= " ${review.get().tuoteTiedot} "  >  </p> -->
+			<label style="display: inline;"> </label>
+			
+		</div>	
+	
+	</div>	
+ 						
+</body>
+</html>

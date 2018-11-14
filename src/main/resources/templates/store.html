@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>CD-store</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+
+	<div class="col-md" style="padding: 20px">
+		<h1>Music Store!</h1>
+
+	</div>
+	
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Artist</th>
+				<th>Year</th>
+				<th>Category</th>
+				<th>Price</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tr th:each="cd : ${cds}" th:onclick="'show(\'' + ${cd.id} + '\');'" style="cursor: pointer">
+			<td th:text="${cd.title}"></td>
+			<td th:text="${cd.artist}"></td>
+			<td th:text="${cd.year}"></td>
+			<td th:text="${cd.category.name}"></td>
+			<td th:text="${cd.price}"></td>
+			<td style="text-align: right;"><a th:href="@{/edit/{id}(id=${cd.id})}" class="btn btn-primary">Edit</a>
+			<a th:href="@{/delete/{id}(id=${cd.id})}" class="btn btn-danger">Delete</a></td>
+	
+		</tr>
+	</table>
+	<div class="col-md" style="padding: 20px">
+		<a href="/add" class=" btn btn-success">Add CD</a>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		function show(id) {
+			window.location.href = '/show/' + id;
+		}
+	</script>
+	
+</body>
+</html>

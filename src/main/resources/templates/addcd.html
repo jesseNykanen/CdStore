@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CD-store</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<div>
+		<h1 style="margin: 30px" >Add a cd</h1>
+		<form class="form-row; col-sm-3 my-1" th:object="${cd}" th:action="@{save}" action="#" method="post">
+		  	
+		  	<label class="col-sm-4 col-form-label">album</label>
+			<input class="col-7" type="text" id="title" th:field="*{title}" />
+			<div style="display: block; height: 10px;"></div>
+			
+		  	<label class="col-sm-4 col-form-label">Artist</label>
+			<input class="col-7" type="text" id="artist" th:field="*{artist}" />
+			<div style="display: block; height: 10px;"></div>
+		  	
+		  	<label class="col-sm-4 col-form-label">Year</label>
+			<input class="col-7" type="text" id="year" th:field="*{year}" />
+			<div style="display: block; height: 10px;"></div>
+			
+			<label class="col-sm-4 col-form-label">Id</label>
+			<input class="col-7" type="text" id="id" th:field="*{id}" />
+			<div style="display: block; height: 10px;"></div>
+			
+			<label class="col-sm-4 col-form-label">Price</label>
+			<input class="col-7" type="text" id="price" th:field="*{price}" />
+			<div style="display: block; height: 10px;"></div>
+			
+			<label class="col-sm-4 col-form-label" for="catlist">Category</label>
+			<select id="deplist" th:field="*{category}" class= "form-controll">
+				<option th:each="category:${categories}"
+						th:value="${category.categoryid}"
+						th:text="${category.name}">
+				</option>		
+			</select>	
+			
+			<div style="height: 10px;"></div>
+			<label class="col-sm-4 col-form-label"></label>
+			<input  type="submit" class="btn btn-success col 7" value="Save"></input>
+			
+		</form>
+	</div>
+</body>
+</html>
